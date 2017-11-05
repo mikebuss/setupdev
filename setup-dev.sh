@@ -68,6 +68,12 @@ ssh-add -K ~/.ssh/id_rsa # Add the SSH key
 if [[ $(gpg --list-keys | grep "Mike Buss" | wc -l | tr -d ' ') = "0" ]]; then # Trim spaces with "tr -d ''"
   echo "No GPG key found. Creating..."
   gpg --gen-key
+  gpg --list-secret-keys --keyid-format LONG
+  git config --global commit.gpgsign true
+  git config --global gpg.program $(which gpg) # Fix GUI's for git
+  echo "GPG key created. You will need to add this key to external services. To view the key, run: "
+  echo "gpg --armor --export YOURKEYHERE"
+  echo "And grab the key AFTER THE SLASH in the line starting with 'sec'"
 fi
 
 # Cleanup brew
