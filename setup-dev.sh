@@ -83,5 +83,8 @@ LINE='export GPG_TTY=$(tty)'
 FILE=~/.bashrc
 grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 
+FILE=~/.zshrc
+grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+
 # Cleanup brew
 brew cleanup
