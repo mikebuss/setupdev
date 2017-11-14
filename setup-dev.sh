@@ -25,6 +25,7 @@ rvm use 2.4.2 --default
 
 # CLI Utilities
 brew install speedtest_cli
+brew install tmux
 
 # GUI Applications
 brew cask install --appdir="/Applications" 1password
