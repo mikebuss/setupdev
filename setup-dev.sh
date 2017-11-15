@@ -5,6 +5,9 @@
 brew install coreutils
 brew install mas # Mac App Store CLI tool
 
+# Dependencies for Postgres
+brew install libpqxx
+
 # Git
 brew install git git-lfs git-flow git-extras
 git config --global user.name "Mike Buss"
@@ -23,6 +26,9 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 rvm install 2.4.2
 rvm use 2.4.2 --default
 
+# Redis
+brew install redis
+
 # CLI Utilities
 brew install speedtest_cli
 brew install tmux
@@ -36,6 +42,7 @@ brew cask install --appdir="/Applications" kaleidoscope
 brew cask install --appdir="/Applications" paw
 brew cask install --appdir="/Applications" postgres
 brew cask install --appdir="/Applications" transmit
+brew cask install --appdir="/Applications" visual-studio-code
 
 # Mac App Store Applications
 mas install 497799835 # Xcode
