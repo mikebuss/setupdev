@@ -13,6 +13,8 @@ brew install git git-lfs git-flow git-extras
 git config --global user.name "Mike Buss"
 git config --global user.email mike@mikebuss.com
 git config --global core.editor vim
+git config lfs.https://git.myresearchapp.com/mbuss/MyHealth.git/info/lfs.locksverify true
+
 
 # GPG
 brew install gnupg gnupg2
