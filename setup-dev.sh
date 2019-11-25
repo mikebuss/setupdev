@@ -15,7 +15,6 @@ git config --global user.email mike@mikebuss.com
 git config --global core.editor vim
 git config lfs.https://git.myresearchapp.com/mbuss/MyHealth.git/info/lfs.locksverify true
 
-
 # GPG
 brew install gnupg gnupg2
 
@@ -25,8 +24,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \curl -sSL https://get.rvm.io | bash -s stable
 
 # Ruby
-rvm install 2.4.2
-rvm use 2.4.2 --default
+rvm install 2.6.3
+rvm use 2.6.3 --default
 
 # Redis
 brew install redis
@@ -38,7 +37,7 @@ brew install tmux
 # GUI Applications
 brew cask install --appdir="/Applications" 1password
 brew cask install --appdir="~/Applications" iterm2
-brew cask install --appdir="/Applications" atom
+# brew cask install --appdir="/Applications" atom
 brew cask install --appdir="/Applications" macdown
 brew cask install --appdir="/Applications" kaleidoscope
 brew cask install --appdir="/Applications" paw
@@ -63,16 +62,16 @@ else
 fi
 
 # SSH Key Setup
-if [ ! -f ~/.ssh/id_rsa ]; then
-  mkdir ~/.ssh
-  ssh-keygen -t rsa -b 4096 -C "mike@mikebuss.com" -f $HOME/.ssh/id_rsa
-  pbcopy < ~/.ssh/id_rsa.pub
-  echo "SSH public key copied to clipboard."
-  echo "Add this SSH key to external services (GitHub, BitBucket, etc) and press enter to continue."
-  read  -n 1 -p "Press Enter to continue." einput
-fi
+# if [ ! -f ~/.ssh/id_rsa ]; then
+#   mkdir ~/.ssh
+#   ssh-keygen -t rsa -b 4096 -C "mike@mikebuss.com" -f $HOME/.ssh/id_rsa
+#   pbcopy < ~/.ssh/id_rsa.pub
+#   echo "SSH public key copied to clipboard."
+#   echo "Add this SSH key to external services (GitHub, BitBucket, etc) and press enter to continue."
+#   read  -n 1 -p "Press Enter to continue." einput
+# fi
 eval "$(ssh-agent -s)" # Start the SSH Agent
-ssh-add -K ~/.ssh/id_rsa # Add the SSH key
+# ssh-add -K ~/.ssh/id_rsa # Add the SSH key
 
 # GPG keys
 if [[ $(gpg --list-keys | grep "Mike Buss" | wc -l | tr -d ' ') = "0" ]]; then # Trim spaces with "tr -d ''"
@@ -80,7 +79,7 @@ if [[ $(gpg --list-keys | grep "Mike Buss" | wc -l | tr -d ' ') = "0" ]]; then #
   gpg --gen-key
 
   echo "GPG key created. You will need to add this key to external services. To view the key, run: "
-  echo "gpg --armor --export YOURKEYHERE"
+  echo "gpg --armor --export YOURKEYHERE | pbcopy"
   echo "And grab the key AFTER THE SLASH in the line starting with 'sec'"
 fi
 
